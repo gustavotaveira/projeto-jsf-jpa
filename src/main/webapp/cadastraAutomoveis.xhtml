@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:jsf-html="http://java.sun.com/jsf/html">
+    <jsf-html:body>
+        <jsf-html:form>
+            <jsf-html:panelGrid columns="2">
+            Marca: <jsf-html:inputText value="#{automovelBean.automovel.marca}"/><br/>
+            Modelo: <jsf-html:inputText value="#{automovelBean.automovel.modelo}"/><br/>
+            Ano de Fabricacao: <jsf-html:inputText value="#{automovelBean.automovel.anoFabricacao}"/><br/>
+            Ano do Modelo:<jsf-html:inputText value="#{automovelBean.automovel.anoModelo}"/><br/>
+            Observacoes:<jsf-html:inputTextarea value="#{automovelBean.automovel.observacoes}"/><br/>
+            <jsf-html:commandButton value="Salvar" action="#{automovelBean.salva}"/>
+            </jsf-html:panelGrid>
+        </jsf-html:form>
+    </jsf-html:body>
+</html>

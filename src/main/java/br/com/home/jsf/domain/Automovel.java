@@ -2,7 +2,6 @@ package br.com.home.jsf.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -15,6 +14,25 @@ public class Automovel {
     private String marca;
     private String observacoes;
     private Integer quilometragem;
+    private Integer anoFabricacao;
+    private Integer anoModelo;
+
+    public Integer getAnoFabricacao() {
+        return anoFabricacao;
+    }
+
+    public void setAnoFabricacao(Integer anoFabricacao) {
+        this.anoFabricacao = anoFabricacao;
+    }
+
+    public Integer getAnoModelo() {
+        return anoModelo;
+    }
+
+    public void setAnoModelo(Integer anoModelo) {
+        this.anoModelo = anoModelo;
+    }
+
 
     public String getModelo() {
         return modelo;
