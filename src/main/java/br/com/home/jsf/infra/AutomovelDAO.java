@@ -22,11 +22,12 @@ public class AutomovelDAO {
 
     public void remova(Automovel automovel){
         entityManager.getTransaction().begin();
-        entityManager.remove(automovel);
+        Automovel auto = entityManager.getReference(Automovel.class, automovel.getId());
+        entityManager.remove(auto);
         entityManager.getTransaction().commit();
     }
 
     public List listeTodos(){
-        return entityManager.createQuery("select a from Automovel a").getResultList();
+        return entityManager.createQuery("select a from Automovel a", Automovel.class).getResultList();
     }
 }
