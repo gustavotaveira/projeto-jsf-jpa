@@ -30,9 +30,11 @@ public class AutomovelBean {
     }
 
     public List<Automovel> getAutomoveis(){
-        EntityManager entityManager = JPAUtil.getEntityManager();
-        Query q = entityManager.createQuery("select a from Automovel a", Automovel.class);
-        this.automoveis = converteParaListaAutomoveis(q.getResultList());
+        if (this.automoveis == null){
+            EntityManager entityManager = JPAUtil.getEntityManager();
+            Query q = entityManager.createQuery("select a from Automovel a", Automovel.class);
+            this.automoveis = converteParaListaAutomoveis(q.getResultList());
+        }
         return this.automoveis;
     }
 
@@ -42,5 +44,13 @@ public class AutomovelBean {
             autos.add((Automovel) auto);
         }
         return autos;
+    }
+
+    public void exclua(Automovel automovel){
+        EntityManager entityManager = JPAUtil.getEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.merge(automovel);
+        entityManager.remove(automovel);
+        entityManager.getTransaction().commit();
     }
 }
